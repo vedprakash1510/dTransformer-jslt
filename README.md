@@ -21,4 +21,79 @@ mvn spring-boot:run
 
 or import this project in any IDE as a maven project.
 
+### Step by Step guide to create this project from scratch
+
+- Create a Spring boot starter project in your favorite IDE.
+- Add the following dependencies in the project pom.xml file. 
+
+```xml
+<properties>
+    <java.version>17</java.version>
+	<camel.version>3.9.0</camel.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-spring-boot-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-jackson-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-undertow-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel.springboot</groupId>
+			<artifactId>camel-jslt-starter</artifactId>
+			<version>${camel.version}</version>
+		</dependency>
+	</dependencies>
+  ```
+- Create a new java class 
+
+```java
+import org.apache.camel.builder.RouteBuilder;
+import org.springframework.stereotype.Component;
+
+@Component
+public class TransformerRouter extends RouteBuilder {
+	@Override
+	public void configure() throws Exception {
+
+		from("undertow:{{server}}/search?useStreaming=true").to("jslt:test.jslt").log("${body}");
+	}
+
+}
+
+```
+- In the above java code we extended class and overrided public void configure() method
+- After overriding method we used two commonent 1) Undetow for REST API and 2) JSLT for transformation
+- Now this project is ready, run this project and it will transform JSON based on JSLT template.
+
+Undertow official website - https://undertow.io/
+
+JSLT official website - https://github.com/schibsted/jslt
 
