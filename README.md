@@ -90,7 +90,7 @@ public class TransformerRouter extends RouteBuilder {
 
 ```
 - In the above java code we extended class and overrided public void configure() method
-- After overriding method we used two commonent 1) Undetow for REST API and 2) JSLT for transformation
+- After overriding method we used two components 1) Undetow for REST API and 2) JSLT for transformation
 - Now this project is ready, run this project and it will transform JSON based on JSLT template.
 
 Undertow official website - https://undertow.io/
