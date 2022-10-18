@@ -1,4 +1,4 @@
-### Dynamic-template based JSON to JSON transformer
+### Dynamic-template based JSON to JSON transformer based on JSLT
 
 We need only one line of code for this -
 
