@@ -1,0 +1,4 @@
+{
+  "array" : .foo.bar,
+  "size"  : size(.foo.bar)
+}
