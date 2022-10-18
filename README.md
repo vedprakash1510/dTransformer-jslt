@@ -13,6 +13,12 @@ from("undertow:{{server}}/search?useStreaming=true").to("jslt:test.jslt").log("$
 
 ### How to run this project 
 
+This project is a Spring Boot Maven project and can be easily run using maven command
 
+```
+mvn spring-boot:run
+```
+
+or import this project in any IDE as a maven project.
 
 
