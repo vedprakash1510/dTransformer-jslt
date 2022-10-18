@@ -8,7 +8,7 @@ from("undertow:{{server}}/search?useStreaming=true").to("jslt:test.jslt").log("$
 
 
 - In the first part of this code we are using an undertow (jboss) to consume REST API.
-- In the middle of this code we are passing rest JSON body into a JSLT template. 
+- In the middle part of this code we are passing rest JSON body into a JSLT template. 
 - In the last part of this code we are logging the transformed JSON body.
 
 ### How to run this project 
