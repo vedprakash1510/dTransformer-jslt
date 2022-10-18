@@ -89,7 +89,7 @@ public class TransformerRouter extends RouteBuilder {
 }
 
 ```
-- In the above java code we extended class and overrided public void configure() method
+- In the above java code we extended the class and overrided public void configure() method
 - After overriding method we used two components 1) Undetow for REST API and 2) JSLT for transformation
 - Create a JSON transformation JSLT Template and put it in the classpath (e.g test.jslt in resource folder) 
 - Now this project is ready, run this project and it will transform JSON based on JSLT template.
